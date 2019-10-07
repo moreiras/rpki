@@ -4,15 +4,14 @@ Uma infraestrutura de chaves públicas é uma estrutura, isto é, um conjunto de
 
 Esse relacionamento é feito por Autoridades de Certificação (CA) por meio da emissão e assinatura de **certificados** criptográficos, em uma estrutura organizada hierarquicamente de forma que é possível realizar a validação das informações.
 
-#back
-- [Criptografia usando chaves públicas](#publickeys)
+- [Criptografia usando chaves públicas](#criptografia-usando-chaves-públicas)
 
 #publickeys
 ### Criptografia usando chaves públicas
 
 A técnica de criptografia utilizada em uma PKI é chamada de **criptografia assimétrica**. Ela envolve a criação de um par de chaves. Essas chaves são números com propriedades matemáticas especiais. A chave pública, como o próprio nome deixa claro, pode e deve ser divulgada publicamente. A chave privada deve ser mantida em segredo. A chave privada pode ser utilizada para assinar digitalmente documentos, ou criptografar os mesmos. A assinatura pode ser então verificada por terceiros, ou o documento pode ser descriptografado, usando a chave pública. O inverso também é possível, um documento pode ser assinado ou criptografado com a chave pública, podendo então a assinatura ser verificada, ou o mesmo descriptografado, com a chave privada.
 
-[Voltar](#back)
+[Voltar](#infraestrutura-de-chaves-pública-pki-conceitos-e-vocabulário)
 
 ### Certificados X.509
 
