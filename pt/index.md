@@ -10,9 +10,9 @@ O **RPKI (Resource Public Key Infrastructure)** está especificado na [RFC 6480]
 
 Vejamos em mais detalhes o que é o RPKI, seus principais componentes, e como pode ser utilizado:
 
-- [Infraestrutura de chaves pública (PKI): conceito e vocabulário](pki/)
-- [Como está estruturado o RPKI e quais são seus principais componentes?](rpki/)
-- [O protocolo up-down](updown/)
-- [O protocolo de publicação](publication/)
-- [Os validadores](validators/)
-- [Guia passo a passo para o ISP](howto/)
+- [Infraestrutura de chaves pública (PKI): conceito e vocabulário](pki)
+- [Como está estruturado o RPKI e quais são seus principais componentes?](rpki)
+- [O protocolo up-down](updown)
+- [O protocolo de publicação](publication)
+- [Os validadores](validators)
+- [Guia passo a passo para o ISP](howto)
