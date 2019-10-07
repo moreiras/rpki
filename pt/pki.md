@@ -23,13 +23,13 @@ O **X.509** é um [padrão definido pela ITU-T](https://www.itu.int/ITU-T/recomm
 
 Os **certificados X.509 são utilizados no RPKI**. Eles também são utilizados em muitos outros protocolos na Internet, por exemplo, no TLS/SSL, que é a base para o HTTPS, o protocolo seguro usado na Web. Eles são usados ainda em uma série de aplicações fora da Internet, por exemplo, para assinatura eletrônica de documentos.
 
-### Certificados de Recurso (Resource Certificates) (RC)
+### Certificados de Recurso (Resource Certificates, RC)
 
 Os certificados X.509 utilizados no RPKI são chamados genericamente de Resource Certificates (RC), ou Certificados de Recursos. Uma característica particular do RPKI, que é interessante destacar, é que os certificados não trazem informações sobre a entidade que os emite. Ou seja, um certificado emitido por um ISP vinculado aos seus blocos de endereço IP não contém o nome do ISP ou outras informações que possam identificá-lo. 
 
-### Autoridade de Certificação (CA)
+### Autoridade de Certificação (Certification Authority, CA)
 
-A **Autoridade de Certificação (CA)** é a entidade que assina os certificados, em uma infraestrutura de chaves públicas (PKI).
+A **Autoridade de Certificação** (Certification Authority, CA) é a entidade que assina os certificados, em uma infraestrutura de chaves públicas (PKI).
 
 No RPKI, cada Regional Internet Registry (RIR) é uma Autoridade de Certificação (CA). Uma organização que obtem recursos de numeração do RIR gera para si própria um par de chaves e um certificado vinculado a tais recursos (RC). Esse certificado é assinado pelo RIR, que atua no papel CA. Essa mesma organização que obteve os recursos e teve o certificado assinado pelo RIR, pode atuar também como CA, assinando certificados gerados por seus clientes, vinculados aos recursos dos mesmos, ou assinando certificados chamados de End Entities (EE) que serão explicados mais à frente.
 
@@ -39,8 +39,11 @@ Em uma infraestrutura de chaves públicas, a Trusted Anchor (TA) é o topo da ca
 
 No RPKI optou-se por não haver uma raiz única. Esta não é uma limitação técnica, mas uma escolha operacional, de governança da Internet, baseada em diversos critérios. Ou seja, na infraestrutura provida pelo RPKI não existe uma raiz única na cadeia de certificação, mas 5 certificados raiz diferentes, 5 TA diferentes, pertencentes respectivamente ao AFRINIC, ARIN, APNIC, LACNIC e RIPE. 
 
-### Autoridade de Registro (RA)
+### Autoridade de Registro (Registration Authority, RA)
 
+Em uma infraestrutura de chaves públicas, a organização responsável por receber a requisição para a assinatura de um certificado, autenticando a entidade requisitante, verificando as informações necessárias, e autorizando a certificação, é chamada de **Autoridade de Registro** (Registration Authority, RA).
+
+No RPKI os RIRs assumem também a função de Autoridade de Registro. 
 
 
 ### End Entities (EE)
