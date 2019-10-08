@@ -36,12 +36,13 @@ Em uma infraestrutura de chaves públicas, estas (as chaves públicas) justament
 Um certificado criptográfico, em uma estrutura de chaves públicas, é basicamente um documento eletrônico, ou arquivo, que:
 
 - contém uma chave pública;
+- contém informações sobre recursos ou identidades vinculados ao certificado (ou seja, à chave pública).
 - está associado a uma chave privada, par da chave pública que está no documento, a qual não faz parte do documento mas está sob os cuidados da organização responsável pelo mesmo (essa chave privada é usada para assinar documentos e a validade dessa assinatura pode ser verificada justamente usando a chave pública contida no certificado);
 - é assinado por uma chave privada, normalmente de uma outra organização denominada Autoridade de Certificação (CA), a qual faz parte de uma cadeia de certificação;
-- pode ser também auto-assinado, pela própria chave privada que é par da chave pública contida no mesmo, sendo dessa forma a raiz de uma cadeia de certificação, chamada de Truted Anchor (TA);
+- pode ser também auto-assinado, pela própria chave privada que é par da chave pública contida no mesmo, sendo dessa forma a raiz de uma cadeia de certificação, chamada de Trut Anchor (TA);
 - contém informações sobre a localização do certificado da organização que o assinou, ou seja, da Autoridade de Certificação (CA), permitindo a obtenção do mesmo, seguindo a cadeia de certificação e possibilitando a validação da assinatura à partir da chave pública contida no certificado da CA;
-- contém normalmente informações sobre a organização responsável pelo certificado (no RPKI não há essa informação);
-- contém informações sobre recursos ou identidades vinculados ao certificado.
+- contém normalmente informações sobre a organização responsável pelo certificado (nos certificados usados no RPKI, por especificação, não há essa informação);
+- tem uma validade pré estabelecida, com data de início e fim;
 
 O **X.509** é um [padrão definido pela ITU-T](https://www.itu.int/ITU-T/recommendations/rec.aspx?rec=X.509) para certificados criptográficos. A [RFC 5280](https://tools.ietf.org/html/rfc5280) especifica como utilizar o X.509 na Internet. E, mais especificamente, a [RFC 3779](https://tools.ietf.org/html/rfc3779) define extensões para os certificados X.509 para que eles sejam capazes de relacionar uma lista de blocos de endereços IP, ou seja, de prefixos, ou uma lista de ASN, ao certificado. As RFCs [6487](https://tools.ietf.org/html/rfc6487) e [7318](https://tools.ietf.org/html/rfc7318) detalham a forma de usar os certificados X.509 para representar blocos de endereços IP ou ASN na Internet.
 
