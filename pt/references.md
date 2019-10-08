@@ -8,4 +8,8 @@
 - **[RFC 6480](https://tools.ietf.org/html/rfc6480) "An Infrastructure to Support Secure Internet Routing"**: Descreve o RPKI, que é um infraestrutura de chaves públicas criada com o objetivo de melhorar a segurança do roteamento (BGP) na Internet.
 - **[RFC 6492](https://tools.ietf.org/html/rfc6492) "A Protocol for Provisioning Resource Certificates"**: Define um protocolo para o provisionamento de Certificados de Recursos, usado no RPKI.
 - **[RFC 8181](https://tools.ietf.org/html/rfc8181) "A Publication Protocol for the Resource Public Key Infrastructure (RPKI)"**: Define um protocolo para publicação de objetos no RPKI.
+- **[RFC 8182](https://tools.ietf.org/html/rfc8182) "The RPKI Repository Delta Protocol (RRDP)"**: Define um protocolo para publicaçõ de objetos no RPKI projetado pra escalibilidade e que permite o uso de CDNs.
+- **[RFC 8183](https://tools.ietf.org/html/rfc8183) "An Out-of-Band Setup Protocol for Resource Public Key Infrastructure (RPKI) Production Services"**: Especifica um protocolo out-of-band para simplificar o setup de repositórios para publicação de objetos, ou relações entre "pais" e "filhos" no RPKI.
+
+- **[RFC 5652](https://tools.ietf.org/html/rfc5652) "Cryptographic Message Syntax (CMS)"**: 
 
