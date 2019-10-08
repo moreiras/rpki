@@ -20,15 +20,13 @@ Vamos procurar a seguir desvendar o vocabulário e entender importantes conceito
 
 ### Criptografia assimétrica e chaves públicas
 
-A técnica de criptografia utilizada em infraestrutura de chaves públicas (PKI) é chamada de **criptografia assimétrica**. A criptografia assimétrica envolve a criação de um par de chaves, uma pública, outra privada. Essas chaves são simplesmente números com propriedades matemáticas especiais. 
-
-A chave pública, como o próprio nome deixa claro, pode e deve ser divulgada publicamente. A chave privada deve ser mantida em segredo. 
+A técnica de criptografia utilizada em infraestrutura de chaves públicas (PKI) é chamada de **criptografia assimétrica**. A criptografia assimétrica envolve a criação de um par de chaves, uma pública, outra privada. Essas chaves são simplesmente números com propriedades matemáticas especiais. A chave pública, como o próprio nome deixa claro, pode e deve ser divulgada publicamente. A chave privada deve ser mantida em segredo. 
 
 A chave privada pode ser utilizada para assinar digitalmente documentos, ou criptografar os mesmos. A assinatura pode ser então verificada por terceiros, ou o documento pode ser descriptografado, usando a chave pública. 
 
 O inverso também é possível, um documento pode ser assinado ou criptografado com a chave pública, podendo então a assinatura ser verificada, ou o mesmo descriptografado, com a chave privada.
 
-Em uma infraestrutura de chaves públicas, estas justamente tem um papel especial, visto que dão o nome para a estrutura. As chaves públicas são publicadas em documentos chamados **certificados**, que são por sua vez assinados por chaves privadas e organizados em uma estrutura hierárquica. O certificado "pai", na cadeia de validação, ou mais especificamente a chave pública que está contida nele, é usada para validar a assinatura do certificado "filho", dessa forma é possível seguir uma cadeia de confiança para a validação de um determinado recurso, vinculado a um certificado. 
+Em uma infraestrutura de chaves públicas, estas (as chaves públicas) justamente têm um papel especial, o que deveria ser óbvio, visto que dão o nome para a estrutura. As chaves públicas são divulgadas em documentos chamados **certificados**, que são por sua vez assinados por chaves privadas e organizados em uma estrutura hierárquica. O certificado "pai", na cadeia de validação, ou mais especificamente a chave pública que está contida nele, é usada para validar a assinatura do certificado "filho" (que foi assinado pela chave privada do "pai"). Dessa forma é possível seguir uma cadeia de confiança para a validação de um determinado recurso, vinculado a um certificado. 
 
 [Voltar](#infraestrutura-de-chaves-pública-pki-conceitos-e-vocabulário)
 
@@ -45,7 +43,7 @@ Um certificado criptográfico, em uma estrutura de chaves públicas, é basicame
 - contém normalmente informações sobre a organização responsável pelo certificado (no RPKI não há essa informação);
 - contém informações sobre recursos ou identidades vinculados ao certificado.
 
-O **X.509** é um [padrão definido pela ITU-T](https://www.itu.int/ITU-T/recommendations/rec.aspx?rec=X.509) para certificados criptográficos. A [RFC 5280](https://tools.ietf.org/html/rfc5280) especifica como utilizar o X.509 na Internet. E, mais especificamente, a [RFC 3779](https://tools.ietf.org/html/rfc3779) define extensões para os certificados X.509 para que eles sejam capazes de relacionar uma lista de blocos de endereços IP, ou seja, de prefixos, ou uma lista de ASN, ao certificado.
+O **X.509** é um [padrão definido pela ITU-T](https://www.itu.int/ITU-T/recommendations/rec.aspx?rec=X.509) para certificados criptográficos. A [RFC 5280](https://tools.ietf.org/html/rfc5280) especifica como utilizar o X.509 na Internet. E, mais especificamente, a [RFC 3779](https://tools.ietf.org/html/rfc3779) define extensões para os certificados X.509 para que eles sejam capazes de relacionar uma lista de blocos de endereços IP, ou seja, de prefixos, ou uma lista de ASN, ao certificado. As RFCs [6487](https://tools.ietf.org/html/rfc6487) e [7318](https://tools.ietf.org/html/rfc7318) detalham a forma de usar os certificados X.509 para representar blocos de endereços IP ou ASN na Internet.
 
 Os **certificados X.509 v.3 são utilizados no RPKI**. Eles também são utilizados em muitos outros protocolos na Internet, por exemplo, no TLS/SSL, que é a base para o HTTPS, o protocolo seguro usado na Web. Eles são usados ainda em uma série de aplicações fora da Internet, por exemplo, para assinatura eletrônica de documentos.
 
@@ -85,15 +83,15 @@ No RPKI optou-se por não haver uma raiz única. Esta não é uma limitação t�
 
 Em uma infraestrutura de chaves públicas, a organização responsável por receber a requisição para a assinatura de um certificado, autenticando a entidade requisitante, verificando as informações necessárias, e autorizando a certificação, é chamada de **Autoridade de Registro** (Registration Authority, RA).
 
-No RPKI os RIRs e NIRs assumem também a função de Autoridade de Registro. Isso é natural, visto que as organizações que tem os recursos alocados já tem acesso a um sistema onde os gerenciam, onde já há autenticação e autorização.
+No RPKI os RIRs e NIRs assumem também a função de Autoridade de Registro. Isso é natural, visto que as organizações que têm os recursos alocados já tem acesso a um sistema onde os gerenciam, e nesse sistema já há as funções de autenticação e autorização.
 
-Por sua vez as organizações que têm recursos alocados pelos RIRs ou NIRs diretamente, podem também emitir e assinar certificados para si próprios ou para seus clientes, sendo responsáveis também pela autenticação e autorização nesses casos, operando como Autoridade de Registro.
+Por sua vez, as organizações que têm recursos alocados pelos RIRs ou NIRs diretamente, podem também emitir e assinar certificados para si próprias ou para seus clientes, sendo responsáveis também pela autenticação e autorização nesses casos, operando como Autoridades de Registro.
 
 No RPKI, pois, as funções de Autoridade de Certificação (Certification Authority, CA) e Autoridade de Registro (Registration Authority, RA):
 - estão presentes em vários pontos da cadeia de certificação;
-- em um determinado ponto da cadeia de certificação são normalmente executadas pela mesma organização, apesar disso são funções diferentes, ou seja, são dois "papéis" diferentes sendo executados pela mesma entidade.
+- em um determinado ponto da cadeia de certificação são normalmente executadas pela mesma organização, mas apesar disso são funções diferentes, ou seja, são dois "papéis" diferentes sendo executados pela mesma entidade.
 
-O RIR ou NIR, no papel de Autoridade de Registro (RA), é quem recebe as requisições, verifica a identidade de quem está fazendo a solicitação e se ela é válida. Por exemplo, autentica o usuário do representante do ISP e verifica se os blocos IP vinculados ao certificado estão realmente alocados para o mesmo. Estando tudo certo, autoriza a assinatura ou emissão do certificado. Então o próprio RIR ou NIR, agora no papel de Autoridade de Certificação (CA), assina ou emite o certificado. A organização responsável (o LACNIC, ou o NIC.br, por exemplo) é a mesma, mas executando papéis distintos, procedimentos distintos.
+O RIR ou NIR, no papel de Autoridade de Registro (RA), é quem recebe as requisições, verifica a identidade de quem está fazendo a solicitação e se ela é válida. Por exemplo, autentica o usuário do ISP em seu sistema e verifica se os blocos IP vinculados ao certificado estão realmente alocados para o mesmo. Estando tudo certo, autoriza a assinatura ou emissão do certificado. Então o próprio RIR ou NIR, agora no papel de Autoridade de Certificação (CA), assina ou emite o certificado, usando sua chave privada. A organização responsável (o LACNIC, ou o NIC.br, por exemplo) é a mesma, mas executando papéis distintos, funções distintas.
 
 [Voltar](#infraestrutura-de-chaves-pública-pki-conceitos-e-vocabulário)
 
