@@ -85,7 +85,15 @@ No RPKI optou-se por não haver uma raiz única. Esta não é uma limitação t�
 
 Em uma infraestrutura de chaves públicas, a organização responsável por receber a requisição para a assinatura de um certificado, autenticando a entidade requisitante, verificando as informações necessárias, e autorizando a certificação, é chamada de **Autoridade de Registro** (Registration Authority, RA).
 
-No RPKI os RIRs assumem também a função de Autoridade de Registro. 
+No RPKI os RIRs e NIRs assumem também a função de Autoridade de Registro. Isso é natural, visto que as organizações que tem os recursos alocados já tem acesso a um sistema onde os gerenciam, onde já há autenticação e autorização.
+
+Por sua vez as organizações que têm recursos alocados pelos RIRs ou NIRs diretamente, podem também emitir e assinar certificados para si próprios ou para seus clientes, sendo responsáveis também pela autenticação e autorização nesses casos, operando como Autoridade de Registro.
+
+No RPKI, pois, as funções de Autoridade de Certificação (Certification Authority, CA) e Autoridade de Registro (Registration Authority, RA):
+- estão presentes em vários pontos da cadeia de certificação;
+- em um determinado ponto da cadeia de certificação são normalmente executadas pela mesma organização, apesar disso são funções diferentes, ou seja, são dois "papéis" diferentes sendo executados pela mesma entidade.
+
+O RIR ou NIR, no papel de Autoridade de Registro (RA), é quem recebe as requisições, verifica a identidade de quem está fazendo a solicitação e se ela é válida. Por exemplo, autentica o usuário do representante do ISP e verifica se os blocos IP vinculados ao certificado estão realmente alocados para o mesmo. Estando tudo certo, autoriza a assinatura ou emissão do certificado. Então o próprio RIR ou NIR, agora no papel de Autoridade de Certificação (CA), assina ou emite o certificado. A organização responsável (o LACNIC, ou o NIC.br, por exemplo) é a mesma, mas executando papéis distintos, procedimentos distintos.
 
 [Voltar](#infraestrutura-de-chaves-pública-pki-conceitos-e-vocabulário)
 
