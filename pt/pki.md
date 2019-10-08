@@ -10,7 +10,7 @@ Vamos procurar a seguir desvendar o vocabulário e entender importantes conceito
 - [Certificados X.509](#certificados-x-509)
 - [Certificados de Recurso (Resource Certificates, RC)](#certificados-de-recurso-resource-certificates-rc)
 - [Autoridade de Certificação (Certification Authority, CA)](#autoridade-de-certificação-certification-authority-ca)
-- [Trusted Anchor (TA)](#trusted-anchor-ta)
+- [Trust Anchor (TA)](#trust-anchor-ta)
 - [Autoridade de Registro (Registration Authority, RA)](#autoridade-de-registro-registration-authority-ra)
 - [CRL](#crl)
 - [End Entities (EE)](#end-entities-ee)
@@ -68,9 +68,9 @@ Essa mesma organização que obteve os recursos e teve o certificado assinado pe
 [Voltar](#infraestrutura-de-chaves-pública-pki-conceitos-e-vocabulário)
 
 
-### Trusted Anchor (TA)
+### Trust Anchor (TA)
 
-Em uma infraestrutura de chaves públicas, a Trusted Anchor (TA) é o topo da cadeia de certificação ou, dito de outra forma, a raiz da cadeia de certificação. Ou seja, é um certificado autoassinado que é considerado, por definição, confiável. Sua chave pública é bem conhecida e considerada confiável em toda a cadeia de certificação. 
+Em uma infraestrutura de chaves públicas, a Trust Anchor (TA) é o topo da cadeia de certificação ou, dito de outra forma, a raiz da cadeia de certificação. Ou seja, é um certificado autoassinado que é considerado, por definição, confiável. Sua chave pública é bem conhecida e considerada confiável em toda a cadeia de certificação. 
 
 Normalmente um certificado TA tem uma longa validade, de até vários anos, e a chave privada desse certificado é armazenada offline, sendo usada apenas para reassiná-lo quando necessário. Esse certificado pode ser trocado de tempos em tempos, de forma programada, para aumentar a confiabilidade do sistema, ou pode ser trocado emergencialmente, se houver comprometimento (vazamento) da chave privada. 
 
