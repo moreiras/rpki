@@ -7,15 +7,15 @@ No caso do RPKI, em particular, os recursos vinculados às chaves criptográfica
 Vamos procurar a seguir desvendar o vocabulário e entender importantes conceitos aplicados a infraestruturas de chaves públicas em geral e ao RPKI (Resource Public Key Infrastructure), em particular:
 
 - [Criptografia assimétrica e chaves públicas](#criptografia-assimétrica-e-chaves-públicas)
-- [Certificados X.509]
-- [Certificados de Recurso (Resource Certificates, RC)]
-- [Autoridade de Certificação (Certification Authority, CA)]
-- [Trusted Anchor (TA)]
-- [Autoridade de Registro (Registration Authority, RA)]
-- [CRL]
-- [End Entities (EE)]
-- [ROA]
-- [Ghostbusters]
+- [Certificados X.509](#certificados-x-509)
+- [Certificados de Recurso (Resource Certificates, RC)](#certificados-de-recurso-resource-certificates-rc)
+- [Autoridade de Certificação (Certification Authority, CA)](#autoridade-de-certificacao-certification-authority-ca)
+- [Trusted Anchor (TA)](#trusted-anchor)
+- [Autoridade de Registro (Registration Authority, RA)](#autoridade-de-registro-regitration-authority-ra)
+- [CRL](#crl)
+- [End Entities (EE)](#end-entities-ee)
+- [ROA](#roa)
+- [Ghostbusters](#ghostbusters)
 
 
 ### Criptografia assimétrica e chaves públicas
