@@ -16,3 +16,4 @@ Vejamos em mais detalhes o que é o RPKI, seus principais componentes, e como po
 - [O protocolo de publicação](publication)
 - [Os validadores](validators)
 - [Guia passo a passo para o ISP](howto)
+- [Referências](references)
